@@ -146,3 +146,121 @@ body {
     scroll-behavior: auto;
   }
 }
+
+/* Navigation */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: var(--space-4) clamp(24px, 5vw, 80px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  transition: background 200ms ease, backdrop-filter 200ms ease;
+}
+
+.nav.scrolled {
+  background: rgba(10, 22, 40, 0.85);
+  backdrop-filter: blur(12px);
+}
+
+.nav-logo {
+  font-family: var(--font-mono), monospace;
+  font-size: 13px;
+  color: var(--color-data);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-6);
+  list-style: none;
+}
+
+@media (max-width: 639px) {
+  .nav-links {
+    display: none;
+  }
+}
+
+.nav-link {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-data);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+.nav-link:hover {
+  color: var(--color-white);
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--color-purple);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.nav-link.active {
+  color: var(--color-white);
+  border-bottom-color: var(--color-purple);
+}
+
+/* Mobile menu toggle */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-data);
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--color-purple);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+@media (max-width: 639px) {
+  .nav-toggle {
+    display: block;
+  }
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(10, 22, 40, 0.95);
+  backdrop-filter: blur(12px);
+  padding: 0 clamp(24px, 5vw, 80px);
+  border-bottom: 1px solid var(--divider);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 200ms ease, padding 200ms ease;
+}
+
+.nav-menu.open {
+  max-height: 500px;
+  padding: var(--space-4) clamp(24px, 5vw, 80px);
+}
+
+.nav-menu .nav-link {
+  display: block;
+  padding-bottom: 0;
+  border-bottom: none;
+}

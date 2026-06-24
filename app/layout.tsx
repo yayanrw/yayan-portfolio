@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { instrumentSerif, geist, jetbrainsMono } from './fonts'
 import './globals.css'
+import Nav from '@/components/Nav'
 
 export const metadata: Metadata = {
   title: 'Yayan Rahmat Wijaya — Full-stack Engineer',
@@ -22,6 +23,7 @@ export default function RootLayout({
         <a href="#main" className="sr-only focus:not-sr-only">
           Skip to main content
         </a>
+        <Nav />
         {children}
       </body>
     </html>
