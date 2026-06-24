@@ -110,6 +110,6 @@ I build systems that run — web apps, data tools, embedded wearables, and a che
 ## Contact
 
 - **Email:** yayanraw@gmail.com
-- **GitHub:** https://github.com/[your-username]  ← replace
-- **LinkedIn:** https://linkedin.com/in/[your-username]  ← replace
-- **Resume/CV:** https://drive.google.com/[your-cv-link]  ← replace
+- **GitHub:** https://github.com/yayanrw
+- **LinkedIn:** https://id.linkedin.com/in/yayanrw
+- **Resume/CV:** https://drive.google.com/file/d/your-cv-id/view  ← replace before launch
