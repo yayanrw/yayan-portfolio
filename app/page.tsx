@@ -37,10 +37,11 @@ export default function Home() {
 
       <RevealSection>
         <section id="work" className="section">
-        <div className="section-divider">
-          <span className="section-divider__label">Work</span>
-        </div>
-        <div className="work-list">
+        <div className="work-section-container">
+          <div className="section-divider">
+            <span className="section-divider__label type-h1-display">Work</span>
+          </div>
+          <div className="work-list">
           {projects.map((project) => (
             <article key={project.slug} className="project-row">
               <Link href={`/work/${project.slug}`} className="project-row__link">
@@ -54,6 +55,7 @@ export default function Home() {
               </Link>
             </article>
           ))}
+          </div>
         </div>
       </section>
       </RevealSection>
@@ -61,7 +63,7 @@ export default function Home() {
       <RevealSection>
         <section id="skills" className="section">
         <div className="section-divider">
-          <span className="section-divider__label">Skills</span>
+          <span className="section-divider__label type-h1-display">Skills</span>
         </div>
 
         <div className="skills-group">
@@ -112,7 +114,7 @@ export default function Home() {
       <RevealSection>
         <section id="certs" className="section">
         <div className="section-divider">
-          <span className="section-divider__label">Certificates</span>
+          <span className="section-divider__label type-h1-display">Certificates</span>
         </div>
         <CertSection />
       </section>
@@ -121,7 +123,7 @@ export default function Home() {
       <RevealSection>
         <section id="about" className="section">
         <div className="section-divider">
-          <span className="section-divider__label">About</span>
+          <span className="section-divider__label type-h1-display">About</span>
         </div>
         <div className="about-inner">
           <div className="about-photo">
@@ -142,7 +144,7 @@ export default function Home() {
           </div>
 
           <div className="about-content">
-            <h2 className="about-title type-h1">Yayan Rahmat Wijaya</h2>
+            <h2 className="about-title type-h1-display">Yayan Rahmat Wijaya</h2>
             <p className="about-bio type-body">
               I build systems that run — web apps, data tools, embedded wearables, and a chess engine that beat me last Thursday. Based in Indonesia. Available for work that needs someone who doesn't stop at the surface.
             </p>
@@ -164,7 +166,7 @@ export default function Home() {
       <RevealSection>
         <section id="contact" className="section">
         <div className="section-divider">
-          <span className="section-divider__label">Contact</span>
+          <span className="section-divider__label type-h1-display">Contact</span>
         </div>
         <div>
           <a href="mailto:yayanraw@gmail.com" className="contact-email">
