@@ -1,5 +1,8 @@
+import Link from "next/link";
 import HeroRing from "@/components/HeroRing";
-import { projects } from "@/lib/data";
+import CertSection from "@/components/CertSection";
+import RevealSection from "@/components/RevealSection";
+import { projects, languages, frameworks, tools } from "@/lib/data";
 
 const stats = [
   { number: "12", label: "Projects" },
@@ -32,11 +35,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="work" className="section">
+      <RevealSection>
+        <section id="work" className="section">
+        <div className="section-divider">
+          <span className="section-divider__label">Work</span>
+        </div>
         <div className="work-list">
           {projects.map((project) => (
             <article key={project.slug} className="project-row">
-              <a href={`/work/${project.slug}`} className="project-row__link">
+              <Link href={`/work/${project.slug}`} className="project-row__link">
                 <span className="project-row__name type-body">{project.name}</span>
                 <span className="project-row__tags type-label">
                   {project.tags.join(" · ")}
@@ -44,11 +51,154 @@ export default function Home() {
                 <span className="project-row__year type-caption">
                   {project.year}
                 </span>
-              </a>
+              </Link>
             </article>
           ))}
         </div>
       </section>
+      </RevealSection>
+
+      <RevealSection>
+        <section id="skills" className="section">
+        <div className="section-divider">
+          <span className="section-divider__label">Skills</span>
+        </div>
+
+        <div className="skills-group">
+          <div className="skills-group__header">
+            <span className="skills-group__label type-label">Languages</span>
+            <span className="skills-group__count">{`×${languages.length}`}</span>
+          </div>
+          <div className="skills-tags">
+            {languages.map((skill) => (
+              <span key={skill.name} className="skill-tag skill-tag--leveled">
+                <span className="skill-tag__name">{skill.name}</span>
+                {skill.level && <span className="skill-tag__level">{skill.level}</span>}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="skills-group">
+          <div className="skills-group__header">
+            <span className="skills-group__label type-label">Frameworks</span>
+            <span className="skills-group__count">{`×${frameworks.length}`}</span>
+          </div>
+          <div className="skills-tags">
+            {frameworks.map((skill) => (
+              <span key={skill.name} className="skill-tag">
+                {skill.name}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="skills-group">
+          <div className="skills-group__header">
+            <span className="skills-group__label type-label">Tools</span>
+            <span className="skills-group__count">{`×${tools.length}`}</span>
+          </div>
+          <div className="skills-tags">
+            {tools.map((skill) => (
+              <span key={skill.name} className="skill-tag">
+                {skill.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+      </RevealSection>
+
+      <RevealSection>
+        <section id="certs" className="section">
+        <div className="section-divider">
+          <span className="section-divider__label">Certificates</span>
+        </div>
+        <CertSection />
+      </section>
+      </RevealSection>
+
+      <RevealSection>
+        <section id="about" className="section">
+        <div className="section-divider">
+          <span className="section-divider__label">About</span>
+        </div>
+        <div className="about-inner">
+          <div className="about-photo">
+            <div
+              style={{
+                width: "100%",
+                aspectRatio: "3/4",
+                backgroundColor: "var(--color-surface)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "var(--color-data)",
+                fontSize: "12px",
+              }}
+            >
+              Photo: 600×800px
+            </div>
+          </div>
+
+          <div className="about-content">
+            <h2 className="about-title type-h1">Yayan Rahmat Wijaya</h2>
+            <p className="about-bio type-body">
+              I build systems that run — web apps, data tools, embedded wearables, and a chess engine that beat me last Thursday. Based in Indonesia. Available for work that needs someone who doesn't stop at the surface.
+            </p>
+            <div className="about-domains">
+              <span className="about-domains-label">Domains</span>
+              <div className="about-domains-list">
+                {["Web", "Wearable", "IoT", "E-commerce", "Data"].map((domain) => (
+                  <span key={domain} className="about-domain-tag">
+                    {domain}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      </RevealSection>
+
+      <RevealSection>
+        <section id="contact" className="section">
+        <div className="section-divider">
+          <span className="section-divider__label">Contact</span>
+        </div>
+        <div>
+          <a href="mailto:yayanraw@gmail.com" className="contact-email">
+            yayanraw@gmail.com
+          </a>
+        </div>
+        <div className="contact-links">
+          <a
+            href="https://github.com/yayanrw"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-link"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://id.linkedin.com/in/yayanrw"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-link"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://drive.google.com/file/d/your-cv-id/view"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-link"
+          >
+            Resume
+          </a>
+        </div>
+      </section>
+      </RevealSection>
     </main>
   );
 }
