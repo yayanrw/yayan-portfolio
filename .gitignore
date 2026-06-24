@@ -1,0 +1,7 @@
+# Worktrees
+.worktrees/
+
+# Dependencies
+node_modules/
+.env
+.env.local
