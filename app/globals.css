@@ -264,3 +264,139 @@ body {
   padding-bottom: 0;
   border-bottom: none;
 }
+
+/* ─── Section base ─── */
+.section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+  padding: 0 clamp(24px, 5vw, 80px);
+}
+
+/* ─── Hero ─── */
+#hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+  max-width: 1100px;
+  width: 100%;
+}
+
+/* Ring wrapper */
+.hero-ring-wrapper {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+/* Ring arc animation */
+.ring-arc {
+  transition: stroke-dashoffset 900ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ring-arc.animate {
+  stroke-dashoffset: var(--target-offset);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring-arc {
+    transition: none;
+  }
+  .ring-arc.animate {
+    stroke-dashoffset: var(--target-offset);
+  }
+}
+
+/* Mobile: smaller ring */
+@media (max-width: 639px) {
+  .readiness-ring {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Hero name — fade in at 800ms */
+.hero-name {
+  color: var(--color-white);
+  opacity: 0;
+  animation: hero-fade-in 400ms ease 800ms forwards;
+}
+
+/* Hero descriptor — fade in at 1100ms */
+.hero-descriptor {
+  opacity: 0;
+  animation: hero-fade-in 300ms ease 1100ms forwards;
+}
+
+/* Hero stats — fade in at 1200ms */
+.hero-stats {
+  opacity: 0;
+  animation: hero-fade-in 300ms ease 1200ms forwards;
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-name,
+  .hero-descriptor,
+  .hero-stats {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+/* ─── Stats block ─── */
+.stats-block {
+  display: flex;
+  gap: clamp(var(--space-7), 6vw, var(--space-9));
+  align-items: flex-end;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.stat__number {
+  font-family: var(--font-mono), 'Courier New', monospace;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 400;
+  color: var(--color-white);
+  line-height: 1;
+}
+
+.stat__label {
+  font-family: var(--font-mono), 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-data);
+  opacity: 0.7;
+}
+
+/* Mobile: stats in 2×2 grid */
+@media (max-width: 639px) {
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6) var(--space-7);
+    align-items: start;
+  }
+}
