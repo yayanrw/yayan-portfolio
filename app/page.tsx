@@ -1,4 +1,5 @@
 import HeroRing from "@/components/HeroRing";
+import { projects } from "@/lib/data";
 
 const stats = [
   { number: "12", label: "Projects" },
@@ -28,6 +29,24 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section id="work" className="section">
+        <div className="work-list">
+          {projects.map((project) => (
+            <article key={project.slug} className="project-row">
+              <a href={`/work/${project.slug}`} className="project-row__link">
+                <span className="project-row__name type-body">{project.name}</span>
+                <span className="project-row__tags type-label">
+                  {project.tags.join(" · ")}
+                </span>
+                <span className="project-row__year type-caption">
+                  {project.year}
+                </span>
+              </a>
+            </article>
+          ))}
         </div>
       </section>
     </main>
