@@ -1,12 +1,12 @@
 /* app/globals.css */
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  --color-night: #0A1628;
-  --color-surface: #111D30;
-  --color-purple: #7B2FBE;
-  --color-data: #A8C5DA;
-  --color-white: #F2F4F5;
+  --color-night: #0a1628;
+  --color-surface: #111d30;
+  --color-purple: #7b2fbe;
+  --color-data: #a8c5da;
+  --color-white: #f2f4f5;
 
   --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
@@ -34,7 +34,11 @@
   --space-10: 128px;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
@@ -157,7 +161,9 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 100;
-  transition: background 200ms ease, backdrop-filter 200ms ease;
+  transition:
+    background 200ms ease,
+    backdrop-filter 200ms ease;
 }
 
 .nav.scrolled {
@@ -193,7 +199,9 @@ body {
   text-decoration: none;
   padding-bottom: 4px;
   border-bottom: 2px solid transparent;
-  transition: color 150ms ease, border-color 150ms ease;
+  transition:
+    color 150ms ease,
+    border-color 150ms ease;
 }
 
 .nav-link:hover {
@@ -251,7 +259,9 @@ body {
   border-bottom: 1px solid var(--divider);
   max-height: 0;
   overflow: hidden;
-  transition: max-height 200ms ease, padding 200ms ease;
+  transition:
+    max-height 200ms ease,
+    padding 200ms ease;
 }
 
 .nav-menu.open {
@@ -628,8 +638,12 @@ body {
 }
 
 @keyframes modal-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -830,7 +844,10 @@ body {
 }
 
 /* Scroll margin for section anchors (account for fixed nav) */
-#work, #skills, #certs, #about, #contact {
+#work,
+#skills,
+#certs,
+#about {
   scroll-margin-top: 80px;
 }
 
@@ -838,7 +855,9 @@ body {
 .reveal {
   opacity: 0;
   transform: translateY(16px);
-  transition: opacity 300ms ease-out, transform 300ms ease-out;
+  transition:
+    opacity 300ms ease-out,
+    transform 300ms ease-out;
 }
 
 .reveal.visible {
