@@ -829,6 +829,11 @@ body {
   content: ' →';
 }
 
+/* Scroll margin for section anchors (account for fixed nav) */
+#work, #skills, #certs, #about, #contact {
+  scroll-margin-top: 80px;
+}
+
 /* Scroll reveal */
 .reveal {
   opacity: 0;
